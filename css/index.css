@@ -1,6 +1,4 @@
 :root {
-  --canvas-width: 500px;
-  --canvas-height: 500px;
   --red: #de9f9f;
   --background: #0c0c0c;
 }
@@ -11,8 +9,6 @@ body {
 
 .my__canvas {
   border: 2px solid var(--red);
-  width: var(--canvas-width);
-  height: var(--canvas-height);
-  margin-left: calc((100% - var(--canvas-width))/2);
+  margin-left: 30%;
   margin-top: 100px;
 }
