@@ -1,7 +1,7 @@
 :root {
   --green: #5baf4c75;
   --background: #0c0c0c;
-
+  --exit: #860111;
 }
 
 body {
@@ -12,4 +12,41 @@ body {
   border: 5px solid var(--green);
   margin-left: 30%;
   margin-top: 100px;
+}
+
+.snake__restart {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  position: absolute;
+  top: 312px;
+  margin-left: 10px;
+  opacity: 0.2;
+}
+
+.snake__restart:hover {
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.game__over {
+  color: var(--exit);
+  font-size: 50px;
+  // visibility: hidden;
+  position: absolute;
+  position: absolute;
+  left: 550px;
+  top: 330px;
+}
+
+.visibility--hidden {
+  visibility: hidden;
+}
+
+.visibility--visible {
+  visibility: visible;
+}
+
+.opacity-full {
+  opacity: 1;
 }

@@ -1,5 +1,11 @@
 function Prey (name) {
   'use strict'
+
+  if (!!Prey.instance) {
+    return Prey.instance;
+  }
+  Prey.instance = this;
+
   let x = 10; // initial location
   let y = 10;
   const samplePreyLocations = [50, 100, 150, 200, 250, 300, 350, 400, 450];

@@ -26,7 +26,7 @@ function Snake (name) {
   const displacementFactor = 10;
   let currentDirection;
   let lengthOfSnake = 1; // initial head
-  const tail = [];
+  let tail = [];
 
   function getName () {
     return name;
@@ -38,6 +38,14 @@ function Snake (name) {
 
   function getY() {
     return y;
+  }
+
+  function setX(newX) {
+    return x = newX;
+  }
+
+  function setY(newY) {
+    return y = newY;
   }
 
   function updateCordinatesAuto() {
@@ -124,12 +132,23 @@ function Snake (name) {
     currentDirection = newDirection
   }
 
+  function reset() {
+    x = 0;
+    y = 0;
+    currentDirection = null;
+    lengthOfSnake = 1;
+    tail = [];
+  }
+
   return {
     name: getName(),
     x: getX,
     y: getY,
+    setX: setX,
+    setY: setY,
     drawSnake: drawSnake,
     changeDirection: changeDirection,
     eatPrey: eatPrey,
+    reset: reset,
   }
 };
