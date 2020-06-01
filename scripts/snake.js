@@ -97,6 +97,11 @@ function Snake (name) {
     tail[lengthOfSnake - 1] = { x: x, y: y};
 
     if (exitGame) {
+      context.clearRect(0,0,canvasWidth,canvasHeight);
+      context.fillStyle = COLORS.EXIT;
+      for (var i=0; i < tail.length; i++) {
+        context.fillRect(tail[i].x, tail[i].y, height, width);
+      }
       return true;
     }
 

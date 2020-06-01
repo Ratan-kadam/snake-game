@@ -14,8 +14,9 @@ const DIRECTION = {
 };
 
 const COLORS = {
-  SNAKE: '#D1FF04',
-  MOUSE: '#ff0000'
+  SNAKE: '#f2f3f4',
+  MOUSE: '#7ac7c0',
+  EXIT: '#860111',
 };
 
 (function() {

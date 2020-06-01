@@ -1,6 +1,7 @@
 :root {
-  --red: #de9f9f;
+  --green: #5baf4c75;
   --background: #0c0c0c;
+
 }
 
 body {
@@ -8,7 +9,7 @@ body {
 }
 
 .my__canvas {
-  border: 2px solid var(--red);
+  border: 5px solid var(--green);
   margin-left: 30%;
   margin-top: 100px;
 }
