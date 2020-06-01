@@ -20,7 +20,6 @@ function Prey (name) {
 
   function pickRandomCordinate() {
     const index = randomIndex();
-    console.log("index:", index);
     return samplePreyLocations[index];
   }
 

@@ -94,11 +94,11 @@ function Snake (name) {
     updateCordinatesAuto();
 
     let exitGame = checkSelfBite({x:x, y:y});
+    tail[lengthOfSnake - 1] = { x: x, y: y};
 
     if (exitGame) {
       return true;
     }
-    tail[lengthOfSnake - 1] = { x: x, y: y};
 
   }
 
