@@ -1,4 +1,4 @@
-function Prey (name) {
+function Prey(name) {
   'use strict'
 
   if (!!Prey.instance) {
@@ -35,7 +35,7 @@ function Prey (name) {
   }
 
   function drawPrey() {
-    context.fillStyle= COLORS.MOUSE;
+    context.fillStyle = COLORS.MOUSE;
     context.fillRect(getX(), getY(), 10, 10);
   }
 

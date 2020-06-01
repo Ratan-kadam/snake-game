@@ -10,7 +10,7 @@
   console.log("snake1 name:", snake2.name); // outout cobra
 */
 
-function Snake (name) {
+function Snake(name) {
   'use strict'
 
   if (!!Snake.instance) {
@@ -19,8 +19,8 @@ function Snake (name) {
   Snake.instance = this;
 
   this.name = name || 'Anaconda';
-  let x=0;
-  let y=0;
+  let x = 0;
+  let y = 0;
   const height = 10;
   const width = 10;
   const displacementFactor = 10;
@@ -28,7 +28,7 @@ function Snake (name) {
   let lengthOfSnake = 1; // initial head
   let tail = [];
 
-  function getName () {
+  function getName() {
     return name;
   }
 
@@ -53,20 +53,20 @@ function Snake (name) {
     let newY;
     switch (currentDirection) {
       case DIRECTION.UP:
-          newY = y - displacementFactor;
-          y = newY < 0 ? canvasHeight : newY;
+        newY = y - displacementFactor;
+        y = newY < 0 ? canvasHeight : newY;
         break;
       case DIRECTION.DOWN:
-          newY = y + displacementFactor;
-          y = newY > canvas.height ? 0 : newY;
+        newY = y + displacementFactor;
+        y = newY > canvas.height ? 0 : newY;
         break;
       case DIRECTION.RIGHT:
-          newX = x + displacementFactor;
-          x = newX > canvas.width ? 0 : newX;
+        newX = x + displacementFactor;
+        x = newX > canvas.width ? 0 : newX;
         break;
       case DIRECTION.LEFT:
-          newX = x - displacementFactor;
-          x = newX < 0 ? canvas.width : newX;
+        newX = x - displacementFactor;
+        x = newX < 0 ? canvas.width : newX;
         break;
       default:
     }
@@ -75,60 +75,59 @@ function Snake (name) {
   function eatPrey(preyX, preyY) {
     if (x === preyX && y === preyY) {
       lengthOfSnake++;
-      tail.push({ x: preyX, y: preyY });
+      tail.push({
+        x: preyX,
+        y: preyY
+      });
       return true;
     }
     return false;
   }
 
-  function checkSelfBite(newhead) {
-    for(var i=0; i < tail.length; i++) {
-      if (tail.length > 1 && newhead.x == tail[i].x && newhead.y == tail[i].y) {
-        return true;
+  function checkSelfBite() {
+    const snakeHead = tail[tail.length - 1];
+    let result = false;
+    for (var i = 0; i < tail.length - 1; i++) {
+      if (tail.length > 4 && snakeHead.x == tail[i].x && snakeHead.y == tail[i].y) {
+        result = true;
       }
     }
+    return result;
   }
 
   function drawSnake() {
     context.fillStyle = COLORS.SNAKE;
-    for (var i=0; i < tail.length; i++) {
+    for (var i = 0; i < tail.length; i++) {
       context.fillRect(tail[i].x, tail[i].y, height, width);
     }
     // update tail head location element which is last element
-    for (var i=0; i < tail.length - 1; i++) {
-      tail[i] = tail[i+1];
+    for (var i = 0; i < tail.length - 1; i++) {
+      tail[i] = tail[i + 1];
     }
 
     updateCordinatesAuto();
-
-    let exitGame = checkSelfBite({x:x, y:y});
-    tail[lengthOfSnake - 1] = { x: x, y: y};
-
-    if (exitGame) {
-      context.clearRect(0,0,canvasWidth,canvasHeight);
-      context.fillStyle = COLORS.EXIT;
-      for (var i=0; i < tail.length; i++) {
-        context.fillRect(tail[i].x, tail[i].y, height, width);
-      }
-      return true;
-    }
-
+    tail[lengthOfSnake - 1] = {
+      x: x,
+      y: y
+    };
   }
 
   function changeDirection(newDirection) {
-    if (currentDirection === DIRECTION.UP && newDirection ===  DIRECTION.DOWN) {
+    if (newDirection === currentDirection) {
       return;
     }
-    if (currentDirection === DIRECTION.DOWN && newDirection ===  DIRECTION.UP) {
+    if (currentDirection === DIRECTION.UP && newDirection === DIRECTION.DOWN) {
       return;
     }
-    if (currentDirection === DIRECTION.LEFT && newDirection ===  DIRECTION.RIGHT) {
+    if (currentDirection === DIRECTION.DOWN && newDirection === DIRECTION.UP) {
       return;
     }
-    if (currentDirection === DIRECTION.RIGHT && newDirection ===  DIRECTION.LEFT) {
+    if (currentDirection === DIRECTION.LEFT && newDirection === DIRECTION.RIGHT) {
       return;
     }
-
+    if (currentDirection === DIRECTION.RIGHT && newDirection === DIRECTION.LEFT) {
+      return;
+    }
     currentDirection = newDirection
   }
 
@@ -150,5 +149,6 @@ function Snake (name) {
     changeDirection: changeDirection,
     eatPrey: eatPrey,
     reset: reset,
+    checkSelfBite: checkSelfBite,
   }
 };

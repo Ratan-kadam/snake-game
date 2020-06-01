@@ -32,7 +32,6 @@ body {
 .game__over {
   color: var(--exit);
   font-size: 50px;
-  // visibility: hidden;
   position: absolute;
   position: absolute;
   left: 550px;
