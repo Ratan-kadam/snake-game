@@ -2,6 +2,7 @@
   --green: #5baf4c75;
   --background: #0c0c0c;
   --exit: #860111;
+  --white: #d6d4c4f2;
 }
 
 body {
@@ -19,13 +20,16 @@ body {
   height: 100px;
   border-radius: 50px;
   position: absolute;
-  top: 312px;
-  margin-left: 10px;
-  opacity: 0.2;
+  top: 100px;
+  left: 120px;
+  font-weight: bold;
 }
 
 .snake__restart:hover {
-  opacity: 1;
+  background-color: var(--exit);
+  color: white;
+  border: none;
+  font-size: 18px;
   transition-duration: 1s;
 }
 
@@ -48,4 +52,26 @@ body {
 
 .opacity-full {
   opacity: 1;
+}
+
+.left__design {
+  position: absolute;
+  opacity: 0.7;
+  width: 190px;
+  height: 98%;
+}
+
+.img__snake {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+}
+
+.game_title {
+  color: var(--white);
+  position: absolute;
+  left: 200px;
+  font-size: 85px;
+   margin-left: 19%;
 }
