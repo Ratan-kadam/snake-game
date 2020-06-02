@@ -3,16 +3,30 @@
   --background: #0c0c0c;
   --exit: #860111;
   --white: #d6d4c4f2;
+  --yellow: #aea919;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 body {
   background-color: var(--background);
+  margin: 0;
+}
+
+.game__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100vh;
 }
 
 .my__canvas {
   border: 5px solid var(--green);
-  margin-left: 30%;
-  margin-top: 100px;
 }
 
 .snake__restart {
@@ -37,7 +51,6 @@ body {
   color: var(--exit);
   font-size: 50px;
   position: absolute;
-  position: absolute;
   left: 550px;
   top: 330px;
 }
@@ -55,29 +68,68 @@ body {
 }
 
 .left__design {
-  position: absolute;
   opacity: 0.7;
   width: 190px;
   height: 98%;
 }
 
-.img__snake {
+.snake {
   position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.img__snake {
   width: 100px;
   height: 100px;
-  left: 50%;
 }
 
 .game_title {
   color: var(--white);
-  position: absolute;
-  left: 200px;
   font-size: 85px;
-  margin-left: 19%;
+  margin-left: 20px;
 }
 
 .score__display {
   color: white;
+  min-height: 200px;
+  min-width: 100px;
+  overflow: hidden;
+}
+
+.score__display .score__elements {
   position: absolute;
-  right: 0;
+  top: 250px;
+}
+
+.score__display .score__img {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  opacity: 0.7;
+}
+
+.score__display .score__number {
+  position: absolute;
+  padding-left: 80px;
+  font-size: 100px;
+  color: var(--yellow);
+}
+
+.score__display .score__label {
+  padding-left: 90px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: var(--white);
+}
+
+.grass_container {
+  position: absolute;
+  bottom: 0;
+  padding-left: 30px;
+}
+
+.grass_container .grass {
+  height: 200px;
+  width: 19%;
 }

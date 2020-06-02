@@ -13,11 +13,31 @@
 
 <body>
   <div class="game__container">
-    <img src="./images/green-pattern.png" class="left__design">
-    <div class="game_title"> Snake Game </div>
-    <canvas id="canvas" class="my__canvas" width="500" height="500"></canvas>
-    <button id="game_restart" onclick="restart()" class="snake__restart"> Restart </button>
-    <div id="scoreCard" class="score__display"></div>
+    <div class-"grid-item grid-item-1">
+      <img src="./images/green-pattern.png" class="left__design">
+      <button id="game_restart" onclick="restart()" class="snake__restart"> Restart </button>
+    </div>
+    <div class="grid-item grid-item-2 canvas_holder">
+      <div class="game_title"> Snake Game </div>
+      <canvas id="canvas" class="my__canvas" width="500" height="500"></canvas>
+    </div>
+    <div class="grid-item grid-item-3 score__display">
+      <div class="score__elements">
+        <div id="scoreCard" class="grid-item score__number">0</div>
+        <img class="score__img" src="./images/color-splash.png">
+        <div class="score__label">Score</div>
+      </div>
+    </div>
+  </div>
+  <div class="grass_container">
+    <img class="grass" src="./images/grass.png">
+    <img class="grass" src="./images/grass.png">
+    <img class="grass" src="./images/grass.png">
+    <img class="grass" src="./images/grass.png">
+    <img class="grass" src="./images/grass.png">
+  </div>
+  <div class="snake">
+    <img class="img__snake" src="./images/snake.png">
   </div>
 </body>
 

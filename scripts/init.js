@@ -104,7 +104,7 @@ function restart() {
 function addDomElementSubscribers(){
   const scoreCard = new Subscriber('scoreCard');
   scoreCard.notify = function() {
-    scoreCardComponent.innerHTML = "Score:" + pubsubStore.score();
+    scoreCardComponent.innerHTML = pubsubStore.score();
   }
   pubsubStore.addSubscriber(scoreCard);
 }
