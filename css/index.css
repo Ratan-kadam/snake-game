@@ -75,3 +75,9 @@ body {
   font-size: 85px;
   margin-left: 19%;
 }
+
+.score__display {
+  color: white;
+  position: absolute;
+  right: 0;
+}

@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Snake Game</title>
   <link rel="stylesheet" href="./css/index.css">
+  <script type="text/javascript" defer src="./scripts/pubsub.js"> </script>
   <script type="text/javascript" defer src="./scripts/snake.js"> </script>
   <script type="text/javascript" defer src="./scripts/prey.js"> </script>
   <script type="text/javascript" defer src="./scripts/init.js"> </script>
@@ -16,6 +17,7 @@
     <div class="game_title"> Snake Game </div>
     <canvas id="canvas" class="my__canvas" width="500" height="500"></canvas>
     <button id="game_restart" onclick="restart()" class="snake__restart"> Restart </button>
+    <div id="scoreCard" class="score__display"></div>
   </div>
 </body>
 

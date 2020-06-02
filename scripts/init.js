@@ -1,11 +1,12 @@
-// main executor all global varibales required for all other scripts
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext("2d");
 const cobra = new Snake('Cobra');
 const mouse = new Prey('mouse');
+const pubsubStore = new Pubsub('pubsubStore');
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 let gameInterval;
+const scoreCardComponent = document.getElementById('scoreCard');
 
 
 const DIRECTION = {
@@ -45,6 +46,8 @@ function manageDomManipulation(status) {
 
 function loadGame() {
   cobra.reset()
+  pubsubStore.reset();
+
   manageDomManipulation(GAME_STATUS.INIT);
   gameInterval = setInterval(function() {
     context.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -59,6 +62,7 @@ function loadGame() {
     const newPreyLocation = cobra.eatPrey(mouse.x(), mouse.y());
 
     if (newPreyLocation) {
+      pubsubStore.updateScore();
       mouse.newLocation();
     }
   }, 200);
@@ -97,7 +101,16 @@ function restart() {
   loadGame();
 }
 
+function addDomElementSubscribers(){
+  const scoreCard = new Subscriber('scoreCard');
+  scoreCard.notify = function() {
+    scoreCardComponent.innerHTML = "Score:" + pubsubStore.score();
+  }
+  pubsubStore.addSubscriber(scoreCard);
+}
+
 (function() {
   eventRegistration();
   loadGame();
+  addDomElementSubscribers();
 })();
