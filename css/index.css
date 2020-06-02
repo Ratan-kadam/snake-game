@@ -111,7 +111,7 @@ body {
 
 .score__display .score__number {
   position: absolute;
-  padding-left: 80px;
+  padding-left: 75px;
   font-size: 100px;
   color: var(--yellow);
 }
